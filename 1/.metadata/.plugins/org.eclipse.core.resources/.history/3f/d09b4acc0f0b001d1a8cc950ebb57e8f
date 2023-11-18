@@ -1,0 +1,30 @@
+package testcases.RegEx;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Demo2 {
+
+	public static void main(String[] args) {
+		//Quantifier
+		String s1 = "abcDeeeee678";
+		System.out.println(s1.replaceAll("^abcDeeeee", "X")); //here we are specifying e soo many times instead we can give the occurrences of e using quantifiers.
+		System.out.println(s1.replaceAll("^abcDe{5}", "X")); //Quantifier represents in {occurrences}
+		
+		System.out.println(s1.replaceAll("^abcDe+", "X")); //we don't care the no'of occurrences just one more e's so simply we can give + at the end of character.
+		System.out.println(s1.replaceAll("^abcDe*", "X")); //star(or) Asterisk is used if we want to check zero e's (or) No e's. so even if we e's (or) if we don't have e's also.
+		System.out.println(s1.replaceAll("^abcDe{3,5}", "X")); //we can specify the range like e's should be 3 through 5
+		
+		String s2 = "123abcHHiiiiiiij";
+		System.out.println(s2.replaceAll("H+i*j", "Y")); //H+ means one or more H and i* means zero or more and followed by j replaced with Y.
+		
+		String s3 = "<h2>Kanya</h2>Kanyakumari<h2>";
+		String h2Pattern = "<h2>.*"; //if we don't give ".*" at the end it will return false as matches will match entire string so we have to give .*
+		Pattern p = Pattern.compile(h2Pattern); //convert regex to pattern
+		Matcher m = p.matcher(s3); //create matcher that will match the given input against the pattern.
+		System.out.println(m.matches()); //return true if matcher matches the pattern.
+		
+
+	}
+
+}

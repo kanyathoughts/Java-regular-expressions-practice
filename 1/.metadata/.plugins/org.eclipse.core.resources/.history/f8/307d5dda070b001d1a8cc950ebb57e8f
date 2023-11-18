@@ -1,0 +1,13 @@
+package testcases.RegEx;
+
+public class Demo2 {
+
+	public static void main(String[] args) {
+		//Quantifier
+		String s1 = "abcDeeeee678";
+		System.out.println(s1.replaceAll("^abcDeeeee", "X"));
+		
+
+	}
+
+}

@@ -1,0 +1,14 @@
+package testcases.RegEx;
+
+public class Challenge3 {
+
+	public static void main(String[] args) {
+
+		String challenge11 = "11111";
+		System.out.println(challenge11.matches("^\\d{5}$"));
+		
+		String challenge12 = "11111-1111";
+		System.out.println(challenge12.matches("^\\d{5}-\\d{4}"));
+	}
+
+}

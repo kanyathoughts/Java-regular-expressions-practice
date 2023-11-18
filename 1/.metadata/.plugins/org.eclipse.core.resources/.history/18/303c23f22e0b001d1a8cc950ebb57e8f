@@ -1,0 +1,20 @@
+package testcases.RegEx;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Challenge2 {
+
+	public static void main(String[] args) {
+		String challenge8 = "abcd.135uvqz.7tzik.999";
+		String digitsMatch = "\\d";
+		Pattern p = Pattern.compile(digitsMatch);
+		Matcher m = p.matcher(challenge8);
+		//System.out.println(m.matches());
+		
+		//System.out.println(challenge8.matches("\\D{4}\\.\\d{3}\\D{4}\\.[0-9]{1}\\D{4}\\.9{3}"));
+	
+
+	}
+
+}

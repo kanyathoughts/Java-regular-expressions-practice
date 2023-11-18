@@ -1,0 +1,43 @@
+package testcases.RegEx;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Challenge1 {
+
+	public static void main(String[] args) {
+
+		String challenge1 = "I want a bike.";
+		String challenge2 = "I want a ball.";
+		System.out.println(challenge1.matches("^I\\s{1}\\D{4}\\s{1}\\D{1}\\s{1}\\D{4}.$"));
+		System.out.println(challenge2.matches("^I\\s{1}\\D{4}\\s{1}\\D{1}\\s{1}\\D{4}.$"));
+		System.out.println(challenge1.matches("I want a \\w+.$")); 
+		//System.out.println(challenge1.matches("I want a [\\w]+.$")); 
+		System.out.println(challenge1.matches("I want a [bike|ball].")); //wrong we can not give like this.
+		System.out.println(challenge1.matches("I want a (bike|ball).")); //we can give or operator using group.
+		
+		String regEx = "I want a \\w+.";
+		Pattern p = Pattern.compile(regEx);
+		Matcher m = p.matcher(challenge1);
+		System.out.println("matches: " + m.matches());
+		//we don't need to reset the matcher as we are initializing the instance with the challenge2 String.
+		m = p.matcher(challenge2);
+		System.out.println("matches2: " + m.matches());
+		
+		String withBlanks = "Replace all blanks with underscores.";
+		//String withUnderScores = withBlanks.replaceAll(" ", "_");
+		String withUnderScores = withBlanks.replaceAll("\\s", "_");
+		System.out.println(withUnderScores);
+		
+		String challenge5 = "aaabcccccccdddefffg";
+		System.out.println("challenge5: " + challenge5.matches("a+bc+d+ef+g"));
+		System.out.println("challenge5: " + challenge5.matches("[a-g]+"));
+		System.out.println("challenge5: " + challenge5.matches("\\D+")); //non digits
+		System.out.println("challenge5: " + challenge5.matches("[abcdefg]+"));
+		System.out.println("challenge5: " + challenge5.replaceAll("[abcdefg]+", "Kanya"));
+		
+		String challenge6 = "abcd.123";
+		System.out.println("challenge6: " + challenge6.matches("\\D+\\.\\d+")); //we have to put "\\." because . will act as all characters so to escape that we have to give "\\."
+	}
+
+}

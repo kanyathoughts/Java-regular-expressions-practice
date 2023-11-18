@@ -1,0 +1,33 @@
+package testcases.RegEx;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Challenge2 {
+
+	public static void main(String[] args) {
+		String challenge8 = "abcd.135uvqz.7tzik.999";
+		String digitsGroup = "[A-Za-z]+\\.(\\d+)"; //we want digits so we put that into one group by giving inside parenthesis
+		Pattern p = Pattern.compile(digitsGroup);
+		Matcher m = p.matcher(challenge8);
+		//System.out.println(m.matches());
+		
+		while (m.find()) {
+			System.out.println("Occurrence : " + m.group(1));
+			
+		}
+		//System.out.println(challenge8.matches("\\D{4}\\.\\d{3}\\D{4}\\.[0-9]{1}\\D{4}\\.9{3}"));
+	
+		String challenge9 = "abcd.135\tuvqz.7\ttzik.999\n";
+		String digitsGroup1 = "([A-Za-z]+)\\.(\\d+)\\s";
+		//System.out.println(challenge9.matches(digitsGroup1));
+		Pattern p1 = Pattern.compile(digitsGroup1);
+		Matcher m1 = p1.matcher(challenge9);
+		System.out.println(m1.groupCount());
+		while (m1.find()) {
+			System.out.println(m1.group(1));
+		}
+
+	}
+
+}

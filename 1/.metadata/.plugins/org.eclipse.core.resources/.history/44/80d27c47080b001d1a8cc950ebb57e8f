@@ -1,0 +1,16 @@
+package testcases.RegEx;
+
+public class Demo2 {
+
+	public static void main(String[] args) {
+		//Quantifier
+		String s1 = "abcDeeeee678";
+		System.out.println(s1.replaceAll("^abcDeeeee", "X")); //here we are specifying e soo many times instead we can give the occurrences of e using quantifiers.
+		System.out.println(s1.replaceAll("^abcDe{5}", "X")); //Quantifier represents in {occurrences}
+		
+		System.out.println(s1.replaceAll("abcDe+", "X"));
+		
+
+	}
+
+}
